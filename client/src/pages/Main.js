@@ -6,6 +6,7 @@ import StartingForm from "../components/StartingForm";
 
 function Main() {
   const [userData, setUserData] = useState({
+    step: "first",
     email: "",
     verify: false
   })
@@ -27,7 +28,7 @@ function Main() {
     <div>
       <Row>
         <Col>
-          <Sidebar />
+          <Sidebar step={userData.step}/>
         </Col>
         <Col>
           <StartingForm onClick={onClick} />
