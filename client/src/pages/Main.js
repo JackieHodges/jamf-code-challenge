@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Sidebar from "../components/Sidebar";
 import StartingForm from "../components/StartingForm";
 
 
 function Main() {
+  const [userData, setUserData] = useState({
+    email: "",
+    verify: false
+  })
 
-  function onClick (event) {
+  function onClick(event) {
     event.preventDefault();
-    console.log("I've been clicked!")
+
+    if (document.getElementById("Password").value === document.getElementById("VerifyPassword").value) {
+      setUserData({
+        email: document.getElementById("Email").value,
+        verify: true
+      })
+    } else {
+      console.log("passwords do not match")
+    }
   }
 
   return (
@@ -18,7 +30,7 @@ function Main() {
           <Sidebar />
         </Col>
         <Col>
-          <StartingForm onClick={onClick}/>
+          <StartingForm onClick={onClick} />
         </Col>
       </Row>
     </div>
