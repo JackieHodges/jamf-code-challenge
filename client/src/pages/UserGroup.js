@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Sidebar from "../components/Sidebar";
 import UserGroupDropdown from "../components/UserGroupDropdown";
 
 
 function UserGroup() {
-  const [userData, setUserData] = useState({
-    step: "first",
-    email: "",
-    verify: false
-  })
+  const [userGroups, setUserGroups] = useState([])
+
+  useEffect(() => {
+    fetch("./_data/mock.json")
+      .then(res => res.json())
+      .then(data => setUserGroups(data))
+      .catch(err => console.log(err));
+  }, [])
 
   function onClick(event) {
     event.preventDefault();
@@ -21,10 +24,10 @@ function UserGroup() {
     <div>
       <Row>
         <Col xs={4}>
-          <Sidebar step={userData.step}/>
+          <Sidebar />
         </Col>
         <Col>
-          <UserGroupDropdown onClick={onClick}/>
+          <UserGroupDropdown userGroups={userGroups} onClick={onClick} />
         </Col>
       </Row>
     </div>
