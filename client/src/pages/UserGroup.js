@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Sidebar from "../components/Sidebar";
-import StartingForm from "../components/StartingForm";
+import UserGroupDropdown from "../components/UserGroupDropdown";
 
 
-function Main() {
+function UserGroup() {
   const [userData, setUserData] = useState({
     step: "first",
     email: "",
@@ -13,16 +13,8 @@ function Main() {
 
   function onClick(event) {
     event.preventDefault();
-
-    if (document.getElementById("Password").value === document.getElementById("VerifyPassword").value) {
-      setUserData({
-        email: document.getElementById("Email").value,
-        verify: true
-      })
-      console.log(userData.email)
-    } else {
-      console.log("passwords do not match")
-    }
+    let selectedGroup = document.getElementById("Usergroup").value;
+    console.log(selectedGroup)
   }
 
   return (
@@ -32,11 +24,11 @@ function Main() {
           <Sidebar step={userData.step}/>
         </Col>
         <Col>
-          <StartingForm onClick={onClick} />
+          <UserGroupDropdown onClick={onClick}/>
         </Col>
       </Row>
     </div>
   );
 }
 
-export default Main;
+export default UserGroup;
