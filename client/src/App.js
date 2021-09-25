@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./pages/Main"
 import './App.css';
 import UserGroup from './pages/UserGroup';
+import Submit from './pages/Submit';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <NavBar />
         <Route exact path="/" component={Main} />
         <Route exact path="/userGroup" component={UserGroup} />
+        <Route exact path="/submit" component={Submit} />
       </Router>
     </div>
   );
