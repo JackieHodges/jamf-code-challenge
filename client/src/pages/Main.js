@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "../components/Sidebar";
 import StartingForm from "../components/StartingForm";
 
@@ -19,6 +19,7 @@ function Main() {
         email: document.getElementById("Email").value,
         verify: true
       })
+      console.log(userData.email)
     } else {
       console.log("passwords do not match")
     }
@@ -27,7 +28,7 @@ function Main() {
   return (
     <div>
       <Row>
-        <Col>
+        <Col xs={4}>
           <Sidebar step={userData.step}/>
         </Col>
         <Col>

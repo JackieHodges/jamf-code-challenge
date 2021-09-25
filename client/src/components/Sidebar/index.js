@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import "./style.css";
+import icon from "../../_assets/app-icon.png"
+import "./index.css"
 
 function Sidebar(props) {
 
@@ -9,34 +10,43 @@ function Sidebar(props) {
     }
 
     return (
-        <Container className="sideBar" style={{ padding: 100 }}>
-            <Row>
-                <Col>
-                    <div id="first" style={{ textAlign: "right", color: "green" }}>0</div>
-                </Col>
-                <Col>
-                    <div>Add Login Details</div>
-                </Col>
-            </Row>
-            <Row>
-            <Col>
-                    <div className="second" style={{ textAlign: "right", color: "grey" }}>0</div>
-                </Col>
+        <div className="sideBar" style={{ padding: 50 }}>
 
-                <Col>
-                    Select the User Group
-                </Col>
-            </Row>
-            <Row>
-            <Col>
-                    <div className="third" style={{ textAlign: "right", color: "grey" }}>0</div>
-                </Col>
+                <Row>
+                    <Col>
+                        <div id="first" style={{ textAlign: "right", color: "green" }}>0</div>
+                    </Col>
+                    <Col>
+                        <div>Add Login Details</div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <div className="second" style={{ textAlign: "right", color: "grey" }}>0</div>
+                    </Col>
+                    <Col>
+                        Select the User Group
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <div className="third" style={{ textAlign: "right", color: "grey" }}>0</div>
+                    </Col>
+                    <Col>
+                        Submit the Form
+                    </Col>
+                </Row>
+                <img
+                    src={icon}
+                    width="300"
+                    height="300"
+                    className="align-bottom"
+                    alt="Company logo"
+                    // style={{ position: "relative", left: "400px", top: "300px", overflow: "hidden" }}
+                />
 
-                <Col>
-                    Submit the Form
-                </Col>
-            </Row>
-        </Container>
+
+        </div>
     )
 }
 
