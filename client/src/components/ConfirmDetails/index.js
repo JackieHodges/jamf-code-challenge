@@ -10,7 +10,7 @@ function ConfirmDetails(props) {
                 <Form.Control type="email" plaintext readOnly defaultValue="email@example.com"/>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="Password">
+            <Form.Group className="mb-3" controlId="Usergroup">
                 <Form.Label>USER GROUP</Form.Label>
                 <Form.Control type="text" plaintext readOnly defaultValue="email@example.com" />
             </Form.Group>
