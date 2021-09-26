@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import ConfirmDetails from "../components/ConfirmDetails";
 import Sidebar from "../components/Sidebar";
 import StartingForm from "../components/StartingForm";
 import UserGroupDropdown from "../components/UserGroupDropdown";
@@ -30,6 +31,7 @@ function Main() {
     if (userData.step === 1) {
       if (document.getElementById("Password").value === document.getElementById("VerifyPassword").value) {
         setUserData({
+          ...userData,
           email: document.getElementById("Email").value,
           verify: true,
           step: 2
@@ -37,20 +39,25 @@ function Main() {
       } else {
         alert("passwords do not match")
       }
-    } else if (userData.step === 2){
+    } else if (userData.step === 2) {
       let selectedGroup = document.getElementById("Usergroup").value;
       setUserData({
-        usergroup: selectedGroup
+        ...userData,
+        usergroup: selectedGroup,
+        step: 3
       })
+    } else {
+      alert("Form has been completed!")
     }
   }
 
-  function DifferingSteps(){
-    if (userData.step === 1){
-      return <StartingForm onClick={onClick} />
-    } if (userData.step === 2){
+  function DifferingSteps() {
+    if (userData.step === 2) {
       return <UserGroupDropdown userGroups={userGroups} onClick={onClick} />
-
+    } else if (userData.step === 3) {
+      return <ConfirmDetails userData={userData} onClick={onClick} />
+    } else {
+        return <StartingForm onClick={onClick} />
     }
   }
 
@@ -61,7 +68,7 @@ function Main() {
           <Sidebar step={userData.step} />
         </Col>
         <Col>
-        <DifferingSteps />
+          <DifferingSteps />
           {/* <StartingForm onClick={onClick} />
           <UserGroupDropdown userGroups={userGroups} onClick={onClick} /> */}
         </Col>

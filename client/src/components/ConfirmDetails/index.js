@@ -7,12 +7,12 @@ function ConfirmDetails(props) {
         <Form>
             <Form.Group className="mb-3" controlId="Email">
                 <Form.Label>EMAIL</Form.Label>
-                <Form.Control type="email" plaintext readOnly defaultValue="email@example.com"/>
+                <Form.Control type="email" plaintext readOnly defaultValue={props.userData.email}/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="Usergroup">
                 <Form.Label>USER GROUP</Form.Label>
-                <Form.Control type="text" plaintext readOnly defaultValue="email@example.com" />
+                <Form.Control type="text" plaintext readOnly defaultValue={props.userData.usergroup} />
             </Form.Group>
 
             <Button onClick={props.onClick} variant="primary" type="submit">
