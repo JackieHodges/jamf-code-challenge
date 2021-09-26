@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 function UserGroupDropdown(props) {
 
@@ -19,10 +19,6 @@ function UserGroupDropdown(props) {
                         ))}
                     </Form.Select>
                 </Form.Group>
-
-                <Button onClick={props.onClick} variant="primary" type="submit">
-                    Submit
-                </Button>
             </Form>
         </div>
     )

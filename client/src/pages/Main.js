@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import ConfirmDetails from "../components/ConfirmDetails";
 import Sidebar from "../components/Sidebar";
 import StartingForm from "../components/StartingForm";
@@ -10,6 +10,7 @@ function Main() {
 
   const [userData, setUserData] = useState({
     step: 1,
+    nextButton: "Next",
     email: "",
     usergroup: "",
     verify: false
@@ -44,11 +45,20 @@ function Main() {
       setUserData({
         ...userData,
         usergroup: selectedGroup,
+        nextButton: "Submit",
         step: 3
       })
     } else {
       alert("Form has been completed!")
     }
+  }
+
+  function onCancel(event) {
+    event.preventDefault();
+    setUserData({
+      step: 1,
+      nextButton: "Next"
+    })
   }
 
   function DifferingSteps() {
@@ -57,7 +67,7 @@ function Main() {
     } else if (userData.step === 3) {
       return <ConfirmDetails userData={userData} onClick={onClick} />
     } else {
-        return <StartingForm onClick={onClick} />
+      return <StartingForm onClick={onClick} />
     }
   }
 
@@ -69,8 +79,10 @@ function Main() {
         </Col>
         <Col>
           <DifferingSteps />
-          {/* <StartingForm onClick={onClick} />
-          <UserGroupDropdown userGroups={userGroups} onClick={onClick} /> */}
+          <div className="buttonGroup">
+            <Button className="cancel" variant="secondary" onClick={onCancel}>Cancel</Button>
+            <Button className="submit" onClick={onClick}>{userData.nextButton}</Button>
+          </div>
         </Col>
       </Row>
     </div>

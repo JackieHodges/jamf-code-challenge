@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 function StartingForm(props) {
 
@@ -19,10 +19,6 @@ function StartingForm(props) {
                 <Form.Label>VERIFY PASSWORD</Form.Label>
                 <Form.Control type="password" placeholder="[Required]" />
             </Form.Group>
-
-            <Button onClick={props.onClick} variant="primary" type="submit">
-                Submit
-            </Button>
         </Form>
     )
 }

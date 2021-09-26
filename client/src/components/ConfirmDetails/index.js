@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 function ConfirmDetails(props) {
 
@@ -14,10 +14,6 @@ function ConfirmDetails(props) {
                 <Form.Label>USER GROUP</Form.Label>
                 <Form.Control type="text" plaintext readOnly defaultValue={props.userData.usergroup} />
             </Form.Group>
-
-            <Button onClick={props.onClick} variant="primary" type="submit">
-                Submit
-            </Button>
         </Form>
     )
 }
