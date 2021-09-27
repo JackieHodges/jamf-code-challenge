@@ -9,7 +9,11 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+app.get("/", function (req, res) {
+    res.json(path.join(__dirname, "public/index.html"));
+});
+
 app.listen(PORT, () => {
-  console.log(`App listening on PORT: ${PORT}`);
+    console.log(`App listening on PORT: ${PORT}`);
 });
 
