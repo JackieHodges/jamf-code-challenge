@@ -1,5 +1,11 @@
 .buttonGroup {
-    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.buttonGroup Button {
+    margin-left: 10px;
 }
 
 
