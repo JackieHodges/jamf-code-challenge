@@ -27,16 +27,24 @@ function Main() {
     }
   }, [userData])
 
+  function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
   function onClick(event) {
     event.preventDefault();
     if (userData.step === 1) {
       if (document.getElementById("Password").value === document.getElementById("VerifyPassword").value) {
-        setUserData({
-          ...userData,
-          email: document.getElementById("Email").value,
-          verify: true,
-          step: 2
-        })
+        if (validateEmail(document.getElementById("Email").value)) {
+          setUserData({
+            ...userData,
+            email: document.getElementById("Email").value,
+            verify: true,
+            step: 2
+          })
+        } else {
+          alert("email is not valid")
+        }
       } else {
         alert("passwords do not match")
       }
