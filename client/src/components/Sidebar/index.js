@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import icon from "../../_assets/app-icon.png"
 import "./index.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 function Sidebar(props) {
 
@@ -35,19 +37,19 @@ function Sidebar(props) {
     }, [props.step])
 
     return (
-        <div className="sideBar" style={{ padding: 50 }}>
+        <div className="sideBar" style={{ padding: 50, textAlign: "right" }}>
 
             <Row>
                 <Col>
-                    <div id="first" style={{ textAlign: "right", color: `${stepData.stepOne}` }}>0</div>
+                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepOne}`}} />
                 </Col>
                 <Col>
-                    <div>Add Login Details</div>
+                    <div >Add Login Details</div>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <div className="second" style={{ textAlign: "right", color: `${stepData.stepTwo}` }}>0</div>
+                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepTwo}`}} />
                 </Col>
                 <Col>
                     Select the User Group
@@ -55,7 +57,7 @@ function Sidebar(props) {
             </Row>
             <Row>
                 <Col>
-                    <div className="third" style={{ textAlign: "right", color: `${stepData.stepThree}` }}>0</div>
+                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepThree}`}} />
                 </Col>
                 <Col>
                     Submit the Form
