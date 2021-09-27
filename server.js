@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get("/", function (req, res) {
-    res.json(path.join(__dirname, "public/index.html"));
+    res.json(path.join(__dirname, "client/public/index.html"));
 });
 
 app.listen(PORT, () => {
