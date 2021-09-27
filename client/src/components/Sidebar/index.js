@@ -37,11 +37,11 @@ function Sidebar(props) {
     }, [props.step])
 
     return (
-        <div className="sideBar" style={{ padding: 50, textAlign: "right" }}>
+        <div className="sideBar" style={{ padding: 50, textAlign: "right", overflow: "hidden" }}>
 
             <Row>
                 <Col>
-                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepOne}`}} />
+                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepOne}` }} />
                 </Col>
                 <Col>
                     <div >Add Login Details</div>
@@ -49,7 +49,7 @@ function Sidebar(props) {
             </Row>
             <Row>
                 <Col>
-                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepTwo}`}} />
+                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepTwo}` }} />
                 </Col>
                 <Col>
                     Select the User Group
@@ -57,7 +57,7 @@ function Sidebar(props) {
             </Row>
             <Row>
                 <Col>
-                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepThree}`}} />
+                    <FontAwesomeIcon icon={faCircle} style={{ alignSelf: "right", color: `${stepData.stepThree}` }} />
                 </Col>
                 <Col>
                     Submit the Form
@@ -65,14 +65,11 @@ function Sidebar(props) {
             </Row>
             <img
                 src={icon}
-                width="300"
-                height="300"
-                className="align-bottom"
+                width="575"
+                height="575"
                 alt="Company logo"
-            // style={{ position: "relative", left: "400px", top: "300px", overflow: "hidden" }}
+                style={{ position: "relative" }}
             />
-
-
         </div>
     )
 }
