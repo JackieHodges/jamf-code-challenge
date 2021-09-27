@@ -31,22 +31,31 @@ function Main() {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
+
   function onClick(event) {
     event.preventDefault();
     if (userData.step === 1) {
-      if (document.getElementById("Password").value === document.getElementById("VerifyPassword").value) {
-        if (validateEmail(document.getElementById("Email").value)) {
-          setUserData({
-            ...userData,
-            email: document.getElementById("Email").value,
-            verify: true,
-            step: 2
-          })
+      let enteredPassword = document.getElementById("Password").value;
+      let verifiedPassword = document.getElementById("VerifyPassword").value;
+      let enteredEmail = document.getElementById("Email").value;
+
+      if (enteredEmail !== "" && enteredPassword !== "" && verifiedPassword !== "") {
+        if (enteredPassword === verifiedPassword) {
+          if (validateEmail(enteredEmail)) {
+            setUserData({
+              ...userData,
+              email: enteredEmail,
+              verify: true,
+              step: 2
+            })
+          } else {
+            alert("email is not valid")
+          }
         } else {
-          alert("email is not valid")
+          alert("passwords do not match")
         }
       } else {
-        alert("passwords do not match")
+        alert("Please ensure all fields are completed")
       }
     } else if (userData.step === 2) {
       let selectedGroup = document.getElementById("Usergroup").value;
