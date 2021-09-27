@@ -65,10 +65,8 @@ function Sidebar(props) {
             </Row>
             <img
                 src={icon}
-                width="575"
-                height="575"
                 alt="Company logo"
-                style={{ position: "relative" }}
+                style={{ position: "relative", maxWidth: "150%", height: "auto" }}
             />
         </div>
     )
